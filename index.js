@@ -14,6 +14,8 @@ require('./src/models/db');
 const Schema = mongoose.Schema;
 
 const app = express();
+
+const port = process.env.PORT || 3001;
   
 const PostsScheme = new Schema (
     {
