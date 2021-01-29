@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-    res.send("<h2>Привет Express!</h2>");
+    res.end("<h2>Привет Express!</h2>");
 });
 
 app.get('/posts/', (req, res) => {
