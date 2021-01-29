@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-    res.end("<h2>Привет Express!</h2>");
+    res.end('<h2>Привет Express!</h2>');
 });
 
 app.get('/posts/', (req, res) => {
@@ -86,6 +86,6 @@ app.put('/posts/:id', (req, res) => {
     });
 });
 
-app.listen(3001, () => {
-    console.log('server started on port 3001')
+app.listen((process.env.PORT || 80), () => {
+    console.log('server started on port 80')
 });
