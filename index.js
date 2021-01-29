@@ -31,11 +31,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-    res.end('<h2>Привет Express!</h2>');
+    res.end('Hello, Express!');
 });
 
-app.get('/posts/', (req, res) => {
-    Posts.find().then((err, posts) => {
+app.get('/api/posts/list/', (req, res) => {
+
+    const countInTab = 2;
+    let skip = +req.qery.numberTab*countInTab;
+    
+    Posts.find().limit(countInTab).skip(skip).then((err, posts) => {
         if(err) {
             res.send(err);
         } else res.json(posts);
@@ -51,15 +55,24 @@ app.get('/posts/:id', (req, res) =>{
     });
 });
 
+app.get('/posts/count/', (req, res) =>{
+    
+    const count = req.query.count;
+    console.log(req.query);
+    Posts.find().then((err, post) => {
+        if(err) {
+            res.send(err);
+        } else res.json(post);
+    });
+});
+
 app.post('/posts', (req, res) => {
     const data = req.body;
     console.log(data)
     const post = new Posts ({
         post: data.post,
         email: data.email
-    });
-
-    post.save().then(() => {
+    });-n(() => {
         res.send({ status: 'ok' });
     });
 });

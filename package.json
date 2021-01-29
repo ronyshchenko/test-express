@@ -1,11 +1,11 @@
 {
-  "name": "mern-course",
+  "name": "test-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
