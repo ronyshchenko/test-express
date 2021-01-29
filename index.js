@@ -7,10 +7,6 @@ const mongoose = require( 'mongoose' );
 const bodyParser = require('body-parser');
 require('./src/models/db');
 
-
-
-
-
 const Schema = mongoose.Schema;
 
 const app = express();
